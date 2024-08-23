@@ -2,7 +2,9 @@ package cleancode.minesweeper.tobe.io;
 
 import cleancode.minesweeper.tobe.GameBoard;
 import cleancode.minesweeper.tobe.GameException;
-import cleancode.minesweeper.tobe.Cell;
+
+import java.util.List;
+import java.util.stream.IntStream;
 
 public class ConsoleOutputHandler {
 
@@ -14,18 +16,30 @@ public class ConsoleOutputHandler {
 
     public  void showBoard(GameBoard board) {
 
-        int BOARD_ROW_SIZE = board.getRowSize();
-        int BOARD_COL_SIZE = board.getColSize();
+        int rowSize = board.getRowSize();
+        int colSize = board.getColSize();
 
-        System.out.println("   a b c d e f g h i j");
-        for (int row = 0; row < BOARD_ROW_SIZE; row++) {
-            System.out.printf("%d  ", row + 1);
-            for (int col = 0; col < BOARD_COL_SIZE; col++) {
+        String alphabets = generateColAlphabets(colSize);
+
+        System.out.println("    " + alphabets);
+        for (int row = 0; row < rowSize; row++) {
+            System.out.printf("%2d  ", row + 1);
+            for (int col = 0; col < colSize; col++) {
                 System.out.print(board.getSign(row, col) + " ");
             }
             System.out.println();
         }
         System.out.println();
+    }
+
+    private String generateColAlphabets(int colSize) {
+        List<String> alphabets = IntStream.range(0, colSize)
+                .mapToObj(index -> (char) ('a' + index))
+                .map(Object::toString)
+                .toList();
+
+        String joiningAlphabets = String.join(" ", alphabets);
+        return joiningAlphabets;
     }
 
     public void printGameWinningComment() {
