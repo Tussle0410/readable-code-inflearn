@@ -1,7 +1,7 @@
-package cleancode.studycafe.tobe.io;
+package cleancode.studycafe.tobe_personal.io;
 
-import cleancode.studycafe.tobe.model.StudyCafeLockerPass;
-import cleancode.studycafe.tobe.model.StudyCafePass;
+import cleancode.studycafe.tobe_personal.model.StudyCafeLockerPass;
+import cleancode.studycafe.tobe_personal.model.StudyCafePass;
 
 import java.util.List;
 
