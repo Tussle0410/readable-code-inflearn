@@ -1,6 +1,6 @@
 package cleancode.minesweeper.tobe.minesweeper.gamelevel;
 
-public class Middle implements GameLevel{
+public class Middle implements GameLevel {
     @Override
     public int getRowSize() {
         return 14;

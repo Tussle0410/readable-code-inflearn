@@ -1,27 +1,27 @@
 package cleancode.minesweeper.tobe.minesweeper.io;
 
 import cleancode.minesweeper.tobe.minesweeper.board.GameBoard;
-import cleancode.minesweeper.tobe.minesweeper.exception.GameException;
 import cleancode.minesweeper.tobe.minesweeper.board.cell.CellSnapshot;
+import cleancode.minesweeper.tobe.minesweeper.board.position.CellPosition;
+import cleancode.minesweeper.tobe.minesweeper.exception.GameException;
 import cleancode.minesweeper.tobe.minesweeper.io.sign.CellSignFinder;
 import cleancode.minesweeper.tobe.minesweeper.io.sign.CellSignProvider;
-import cleancode.minesweeper.tobe.minesweeper.board.position.CellPosition;
 
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class ConsoleOutputHandler implements OutputHandler{
+public class ConsoleOutputHandler implements OutputHandler {
     CellSignFinder cellSignFinder = new CellSignFinder();
 
     @Override
-    public  void showGameStartComments() {
+    public void showGameStartComments() {
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
         System.out.println("지뢰찾기 게임 시작!");
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
     }
 
     @Override
-    public  void showBoard(GameBoard board) {
+    public void showBoard(GameBoard board) {
 
         int rowSize = board.getRowSize();
         int colSize = board.getColSize();

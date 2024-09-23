@@ -13,15 +13,15 @@ public class CellPositions {
         this.positions = positions;
     }
 
-    public static CellPositions of(List<CellPosition> positions){
+    public static CellPositions of(List<CellPosition> positions) {
         return new CellPositions(positions);
     }
 
     public static CellPositions from(Cell[][] board) {
         List<CellPosition> cellPositions = new ArrayList<>();
 
-        for(int row=0;row<board.length;row++){
-            for(int col=0;col<board[row].length;col++){
+        for (int row = 0; row < board.length; row++) {
+            for (int col = 0; col < board[row].length; col++) {
                 CellPosition cellPosition = CellPosition.of(row, col);
                 cellPositions.add(cellPosition);
             }
@@ -46,7 +46,7 @@ public class CellPositions {
 
     }
 
-    private  boolean doesNotContain(CellPosition position) {
+    private boolean doesNotContain(CellPosition position) {
         return !positions.contains(position);
     }
 

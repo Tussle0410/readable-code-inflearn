@@ -3,7 +3,7 @@ package cleancode.minesweeper.tobe.minesweeper.io.sign;
 import cleancode.minesweeper.tobe.minesweeper.board.cell.CellSnapshot;
 import cleancode.minesweeper.tobe.minesweeper.board.cell.CellSnapshotStatus;
 
-public class FlagCellSignProvider  implements CellSignProvidable{
+public class FlagCellSignProvider implements CellSignProvidable {
     private static final String FLAG_SIGN = "⚑";
 
     @Override

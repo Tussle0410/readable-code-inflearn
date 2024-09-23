@@ -16,9 +16,9 @@ public class GameApplication {
                 new ConsoleInputHandler(),
                 new ConsoleOutputHandler()
         );
-         Minesweeper minesweeper = new Minesweeper(gameConfig);
-         minesweeper.initialize();
-         minesweeper.run();
+        Minesweeper minesweeper = new Minesweeper(gameConfig);
+        minesweeper.initialize();
+        minesweeper.run();
     }
     /**
      *  DIP(Dependency Inversion Principle) : 의존성 역전

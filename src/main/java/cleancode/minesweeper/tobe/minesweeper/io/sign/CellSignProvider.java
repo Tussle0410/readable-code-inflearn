@@ -5,32 +5,32 @@ import cleancode.minesweeper.tobe.minesweeper.board.cell.CellSnapshotStatus;
 
 import java.util.Arrays;
 
-public enum CellSignProvider implements CellSignProvidable{
-    EMPTY("빈 셀", CellSnapshotStatus.EMPTY){
+public enum CellSignProvider implements CellSignProvidable {
+    EMPTY("빈 셀", CellSnapshotStatus.EMPTY) {
         @Override
         public String provide(CellSnapshot cellSnapshot) {
             return EMPTY_SIGN;
         }
     },
-    FLAG("깃발", CellSnapshotStatus.FLAGGED){
+    FLAG("깃발", CellSnapshotStatus.FLAGGED) {
         @Override
         public String provide(CellSnapshot cellSnapshot) {
             return FLAG_SIGN;
         }
     },
-    LAND_MINE("지뢰", CellSnapshotStatus.LAND_MINE){
+    LAND_MINE("지뢰", CellSnapshotStatus.LAND_MINE) {
         @Override
         public String provide(CellSnapshot cellSnapshot) {
             return LAND_MINE_SIGN;
         }
     },
-    NUMBER("숫자", CellSnapshotStatus.NUMBER){
+    NUMBER("숫자", CellSnapshotStatus.NUMBER) {
         @Override
         public String provide(CellSnapshot cellSnapshot) {
             return String.valueOf(cellSnapshot.getNearByLandMineCount());
         }
     },
-    UNCHECKED("확인 전", CellSnapshotStatus.UNCHECKED){
+    UNCHECKED("확인 전", CellSnapshotStatus.UNCHECKED) {
         @Override
         public String provide(CellSnapshot cellSnapshot) {
             return UNCHECKED_SIGN;
@@ -50,13 +50,7 @@ public enum CellSignProvider implements CellSignProvidable{
         this.cellSnapshotStatus = cellSnapshotStatus;
     }
 
-
-    @Override
-    public boolean support(CellSnapshot cellSnapshot) {
-        return cellSnapshot.isSameStatus(cellSnapshotStatus);
-    }
-
-    public static String findCellSignFrom(CellSnapshot snapshot){
+    public static String findCellSignFrom(CellSnapshot snapshot) {
 
         CellSignProvider cellSignProvider = findBy(snapshot);
 
@@ -68,5 +62,10 @@ public enum CellSignProvider implements CellSignProvidable{
                 .filter(provider -> provider.support(snapshot))
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("확인할 수 없는 셀입니다."));
+    }
+
+    @Override
+    public boolean support(CellSnapshot cellSnapshot) {
+        return cellSnapshot.isSameStatus(cellSnapshotStatus);
     }
 }

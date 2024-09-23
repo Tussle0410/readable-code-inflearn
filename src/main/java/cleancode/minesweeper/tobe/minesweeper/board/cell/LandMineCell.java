@@ -4,6 +4,7 @@ public class LandMineCell implements Cell {
 
 
     private final CellState cellState = CellState.initialize();
+
     @Override
     public boolean hasLandMineCount() {
         return false;
@@ -16,15 +17,14 @@ public class LandMineCell implements Cell {
 
     @Override
     public CellSnapshot getSnapshot() {
-        if(isChecked()){
+        if (isChecked()) {
             return CellSnapshot.ofLandMine();
         }
-        if(isFlagged()){
+        if (isFlagged()) {
             return CellSnapshot.ofFlag();
         }
         return CellSnapshot.ofUnchecked();
     }
-
 
 
     @Override

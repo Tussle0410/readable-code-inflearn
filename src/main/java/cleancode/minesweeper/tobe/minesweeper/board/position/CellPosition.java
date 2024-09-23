@@ -9,7 +9,7 @@ public class CellPosition {
 
     public CellPosition(int rowIndex, int colIndex) {
 
-        if(rowIndex < 0 || colIndex < 0) {
+        if (rowIndex < 0 || colIndex < 0) {
             throw new IllegalArgumentException("올바르지 않은 좌표입니다.");
         }
         this.rowIndex = rowIndex;
@@ -55,7 +55,7 @@ public class CellPosition {
     }
 
     public CellPosition calculatePositionBy(RelativePosition relativePosition) {
-        if(this.canCalculatePositionBy(relativePosition)) {
+        if (this.canCalculatePositionBy(relativePosition)) {
             return CellPosition.of(
                     rowIndex + relativePosition.getDeltaRow(),
                     colIndex + relativePosition.getDeltaCol());
@@ -71,6 +71,7 @@ public class CellPosition {
     public boolean isRowIndexLessThan(int rowSize) {
         return rowIndex < rowSize;
     }
+
     public boolean isColIndexLessThan(int colSize) {
         return colIndex < colSize;
     }

@@ -10,7 +10,7 @@ public class Cells {
         this.cells = cells;
     }
 
-    public static Cells of(List<Cell> cells){
+    public static Cells of(List<Cell> cells) {
         return new Cells(cells);
     }
 
@@ -22,7 +22,7 @@ public class Cells {
         return of(cellList);
     }
 
-    public boolean isAllChecked(){
+    public boolean isAllChecked() {
         return cells.stream().allMatch(Cell::isChecked);
     }
 }

@@ -9,10 +9,11 @@ public class CellState {
         this.isOpened = isOpened;
     }
 
-    public static CellState initialize(){
+    public static CellState initialize() {
         return new CellState(false, false);
     }
-    public  void flag() {
+
+    public void flag() {
         this.isFlagged = true;
     }
 
@@ -23,10 +24,12 @@ public class CellState {
     public boolean isChecked() {
         return isFlagged || isOpened;
     }
+
     public boolean isOpened() {
         return this.isOpened;
     }
 
-    public boolean isFlagged() {return this.isFlagged;
+    public boolean isFlagged() {
+        return this.isFlagged;
     }
 }
